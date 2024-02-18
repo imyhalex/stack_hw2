@@ -22,14 +22,13 @@ public class Converter {
 
         for (String item : list) {
             // for numbers
-            if (item.matches("\\d+"))
+            if (item.matches("\\d+")) {
                 postfix.append(item).append(" ");
-
+            }
             // for the operators within parenthese
             else if (item.equals("(")) {
                 myStack.push(item);
-            }
-            else if (item.equals(")")) {
+            } else if (item.equals(")")) {
                 while (!myStack.isEmpty() && !myStack.top().equals("(")) {
                     postfix.append(myStack.pop()).append(" ");
                 }

@@ -1,4 +1,4 @@
-package hw;
+package ys4689.hw;
 
 public class ArrayStack<E> implements Stack<E> {
 	public static final int CAPACITY=1000;

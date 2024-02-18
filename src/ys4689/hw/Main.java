@@ -1,4 +1,4 @@
-package hw;
+package ys4689.hw;
 
 import java.util.Scanner;
 
