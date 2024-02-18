@@ -33,8 +33,9 @@ public class Converter {
                 while (!myStack.isEmpty() && !myStack.top().equals("(")) {
                     postfix.append(myStack.pop()).append(" ");
                 }
+                // After evalutating the operator, we need to pop the open parenthese
                 if (!myStack.isEmpty() && myStack.top().equals("(")) {
-                    myStack.pop(); // Pop the "(" without evaluating its precedence
+                    myStack.pop(); 
                 }
             } 
             
