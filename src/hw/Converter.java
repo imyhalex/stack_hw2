@@ -24,24 +24,31 @@ public class Converter {
             // for numbers
             if (item.matches("\\d+"))
                 postfix.append(item).append(" ");
+
             // for the operators within parenthese
-            else if (item.equals("("))
+            else if (item.equals("(")) {
                 myStack.push(item);
+            }
             else if (item.equals(")")) {
                 while (!myStack.isEmpty() && !myStack.top().equals("(")) {
                     postfix.append(myStack.pop()).append(" ");
                 }
-            } else {
-                // For token that has lower precedence
+                if (!myStack.isEmpty() && myStack.top().equals("(")) {
+                    myStack.pop(); // Pop the "(" without evaluating its precedence
+                }
+            } 
+            
+            else {
+                // For tokens that has lower precedence
                 while (!myStack.isEmpty() && precedences(item) <= precedences(myStack.top())) {
                     postfix.append(myStack.pop()).append(" ");
                 }
-                // If token has higher precedence
+                // If tokens has higher precedence
                 myStack.push(item);
             }
-
         }
 
+        // enter the rest of the strings
         while (!myStack.isEmpty()) {
             postfix.append(myStack.pop()).append(" ");
         }
@@ -61,7 +68,7 @@ public class Converter {
             case "^":
                 return 3;
             default:
-                throw new IllegalArgumentException("Invalid operator: " + operator);
+                return -1;
         }
     }
 }

@@ -13,8 +13,8 @@ public class Main {
             Converter converter = new Converter(infix);
             String postfix = converter.toPostFix();
             System.out.println("converted to postfix: " + postfix);
-            // double answer = PostfixCalculator.evaluate(postfix);
-            // System.out.println("answer is " + String.format("%.2f", answer));
+            double answer = PostfixCalculator.evaluate(postfix);
+            System.out.println("answer is " + String.format("%.2f", answer));
 		}
 		scanner.close();
 	}

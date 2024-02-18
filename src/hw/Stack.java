@@ -1,7 +1,7 @@
 
 package hw;
 
-import java.util.*;
+// import java.util.*;
 
 public interface Stack<E> {
 	/**
